@@ -1,0 +1,7 @@
+{
+  "name": "noyan-kiz",
+  "version": "0.1.0",
+  "description": "Noyan düşünürken spinner yerine animasyonlu piksel anime kız (siyah/beyaz/neon pembe)",
+  "author": { "name": "Ali" },
+  "types": "./types/index.d.ts"
+}
