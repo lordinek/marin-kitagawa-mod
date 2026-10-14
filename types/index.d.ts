@@ -2,6 +2,6 @@ export type KizMode = 'thinking' | 'requesting' | 'responding' | 'tool-input' | 
 
 declare module 'claude-code' {
   interface PluginState {
-    'noyan-kiz': { isOff: boolean }
+    'marin-kitagawa': { isOff: boolean }
   }
 }

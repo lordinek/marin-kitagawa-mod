@@ -1,4 +1,4 @@
-// Noyan kız: Ali'nin örnek görselinden portre (portrait-data.ts, PW x PH piksel) + düşünce balonu.
+// Marin Kitagawa: Ali'nin örnek görselinden portre (portrait-data.ts, PW x PH piksel) + düşünce balonu.
 // Çeyrek blok çizim: bir terminal hücresi 2x2 pikseldir, iki renkle (▘▝▖▗▚▞▛▜▙▟ …). Hücre dikeyde iki kat uzun
 // olduğundan portre yatayda iki kat örneklenir; bu, yarım bloğa göre yatayda iki kat detay verir.
 // Animasyon: göz kırpma, konuşan ağız, göz kırpışı (wink), nefes.

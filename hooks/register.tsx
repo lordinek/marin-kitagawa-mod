@@ -3,7 +3,7 @@ import type { Register } from 'claude-code'
 
 import { COLUMNS, ROWS, frame, frameKey, type Mode } from './sprite'
 
-const isOff = atom({ plugin: 'noyan-kiz', key: 'isOff' } as const, false)
+const isOff = atom({ plugin: 'marin-kitagawa', key: 'isOff' } as const, false)
 
 const LABEL: Record<Mode, string> = {
   thinking: 'düşünüyor',
@@ -23,7 +23,7 @@ export const register: Register = on => {
   let t = 0
 
   on('session.start', async ($, e, next) => {
-    await $.command.register({ name: 'kiz', description: 'Düşünürken çıkan piksel kızı aç/kapat' })
+    await $.command.register({ name: 'marin', description: 'Düşünürken çıkan piksel Marin'i aç/kapat' })
     $.clock.every(FPS_MS, () => {
       t++
       for (const [requestId, site] of sites) {
@@ -39,10 +39,10 @@ export const register: Register = on => {
     return next(e)
   })
 
-  on('command.run', { command: 'kiz' }, async $ => {
+  on('command.run', { command: 'marin' }, async $ => {
     const off = await update($, isOff, v => !v)
 
-    return { text: off ? 'Piksel kız kapandı.' : 'Piksel kız açıldı.' }
+    return { text: off ? 'Marin kapandı.' : 'Marin açıldı.' }
   })
 
   on('ui.render', { component: 'Spinner' }, async ($, e, next) => {
@@ -63,7 +63,7 @@ export const register: Register = on => {
             {text}
             {suffix}
           </Text>
-          <Text dimColor>Noyan {LABEL[mode]}</Text>
+          <Text dimColor>Marin {LABEL[mode]}</Text>
         </Box>
       </Box>
     )

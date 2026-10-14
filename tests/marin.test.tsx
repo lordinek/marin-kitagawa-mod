@@ -36,23 +36,23 @@ test('portre kaymıyor; değişmeyen kare yeniden gönderilmiyor', async () => {
   expect(frameKey('thinking', 5)).not.toBe(frameKey('thinking', 6))
 })
 
-test('terminalde spinner yerine kız ve Türkçe durum yazısı çiziliyor', async $ => {
-  const ui = await $.ui.mount({ plugin: 'noyan-kiz', surface: 'terminal', ...SPINNER('thinking') })
+test('terminalde spinner yerine Marin ve Türkçe durum yazısı çiziliyor', async $ => {
+  const ui = await $.ui.mount({ plugin: 'marin-kitagawa', surface: 'terminal', ...SPINNER('thinking') })
   expect(await ui.find({ type: 'Raster' })).toBeDefined()
-  expect(await ui.find({ type: 'Text', text: /Noyan düşünüyor/ })).toBeDefined()
+  expect(await ui.find({ type: 'Text', text: /Marin düşünüyor/ })).toBeDefined()
   expect(await ui.find({ type: 'Text', text: /Düşünüyor…/ })).toBeDefined()
   await ui.unmount()
 })
 
-test('/kiz kapatınca motorun kendi spinner\'ı dönüyor', async ($, on) => {
+test('/marin kapatınca motorun kendi spinner\'ı dönüyor', async ($, on) => {
   // Motorun yerine geçen alt katman: kendi spinner'ını "motor" yazısıyla çizer.
   on('ui.render', { component: 'Spinner' }, ($, e) => {
     const { Text } = $.ui.resolve(e)
     return <Text>motor</Text>
   })
-  const off = await $.command.run({ command: 'kiz', args: '' })
+  const off = await $.command.run({ command: 'marin', args: '' })
   expect(JSON.stringify(off)).toContain('kapandı')
-  const ui = await $.ui.mount({ plugin: 'noyan-kiz', surface: 'terminal', ...SPINNER('thinking') })
+  const ui = await $.ui.mount({ plugin: 'marin-kitagawa', surface: 'terminal', ...SPINNER('thinking') })
   expect(await ui.find({ type: 'Raster' })).toBeUndefined()
   expect(await ui.find({ type: 'Text', text: /motor/ })).toBeDefined()
   await ui.unmount()

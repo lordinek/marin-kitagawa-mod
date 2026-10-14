@@ -1,10 +1,10 @@
-# noyan-kiz
+# Marin Kitagawa mod for Claude Code
 
-A Claude Code mod that replaces the "thinking" spinner with an animated pixel-art girl drawn right in the terminal.
+A Claude Code mod that replaces the "thinking" spinner with an animated pixel-art Marin Kitagawa drawn right in the terminal.
 
 ![demo](assets/demo.gif)
 
-Noyan is the name I gave my Claude Code setup. While it works, she shows up next to the status text:
+While Claude works, Marin shows up next to the status text:
 
 - **thinking**: a thought bubble with dots filling up
 - **writing**: her mouth moves and she winks now and then
@@ -25,26 +25,26 @@ Frames are cached by pose. The timer only re-sends a frame when the pose actuall
 Copy the folder into your mods directory and restart Claude Code:
 
 ```
-~/.claude/mods/noyan-kiz/
+~/.claude/mods/marin-kitagawa/
 ```
 
-Type `/kiz` to turn her on or off. The setting is kept between sessions.
+Type `/marin` to turn her on or off. The setting is kept between sessions.
 
 She only appears in a terminal that is at least 86 columns wide. In narrower windows the normal spinner is used.
 
 ## Layout
 
 ```
-hooks/register.tsx      hooks into the Spinner render, the /kiz command and the frame timer
+hooks/register.tsx      hooks into the Spinner render, the /marin command and the frame timer
 hooks/sprite.ts         poses, thought bubble, quarter-block encoder, frame cache
 hooks/portrait-data.ts  the five portrait variants (generated)
 tools/make.py           cuts the background off a source image and downscales it
 tools/variants.py       paints closed eyes, closed mouth and wink, then exports portrait-data.ts
-tests/kiz.test.tsx      frame size, base64 validity, blinking, no re-send of unchanged frames, /kiz fallback
+tests/marin.test.tsx    frame size, base64 validity, blinking, no re-send of unchanged frames, /marin fallback
 ```
 
 The `tools/` scripts need Pillow and NumPy. The crop box and eye/mouth coordinates in `variants.py` are set for my reference image, so you will need to adjust them for your own picture.
 
 ## License
 
-MIT
+The code is MIT. Marin Kitagawa is from *My Dress-Up Darling* (Sono Bisque Doll wa Koi wo Suru) by Shinichi Fukuda. This is a fan project with no affiliation, and the character is not covered by the MIT license.
